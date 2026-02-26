@@ -77,7 +77,7 @@
 //   console.log(
 //     pink + "║" + reset +
 //     centerText(
-//       yellow + `Server IP: ${ipAddress}:3000` + reset
+//       yellow + `Server IP: ${ipAddress}:PORT` + reset
 //     ) +
 //     pink + "║" + reset
 //   );
@@ -241,7 +241,8 @@ const WebSocket = require("ws");
 const { v4: uuidv4 } = require("uuid");
 const os = require("os");
 
-const wss = new WebSocket.Server({ port: 3000 });
+const PORT = process.env.PORT || 3000;
+const wss = new WebSocket.Server({ port: PORT });
 const players = new Map();
 
 const WIDTH = 50;
@@ -479,4 +480,5 @@ wss.on("connection", (socket) => {
   });
 
   socket.on("error", () => {});
+
 });
