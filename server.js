@@ -240,10 +240,20 @@
 const WebSocket = require("ws");
 const { v4: uuidv4 } = require("uuid");
 const os = require("os");
+const http = require("http");
+
+const server = http.createServer((req, res) => {
+    res.writeHead(200);
+    res.end("Mini Missions Server OK");
+});
 
 const PORT = process.env.PORT || 3000;
-const wss = new WebSocket.Server({ port: PORT });
+const wss = new WebSocket.Server({ server });
 const players = new Map();
+
+server.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+});
 
 const WIDTH = 50;
 
@@ -482,3 +492,4 @@ wss.on("connection", (socket) => {
   socket.on("error", () => {});
 
 });
+
