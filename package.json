@@ -8,13 +8,5 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
-  "dependencies": {
-    "chalk": "^4.1.2",
-    "uuid": "^13.0.0",
-    "ws": "^8.19.0"
-  },
-  "devDependencies": {
-    "nodemon": "^3.1.11"
-  }
+  "description": ""
 }
